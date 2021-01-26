@@ -19,6 +19,7 @@ topo/topol.top
 init/water_alkane.inp
 mdout.mdp
 dummy.tpr
+table*.xvg
 \#*
 # Misc
 init/water_alkane.pdb

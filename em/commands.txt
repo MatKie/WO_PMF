@@ -6,5 +6,6 @@ t CT
 t Wift25
 q
 cp ../../CarbonFF/tables/*.xvg
+gmx grompp -f em.mdp -c water_alkane.gro -p ../topo/topol.top -n index.ndx
 gmx mdrun -v -s topol.tpr
 cp *.xvg
