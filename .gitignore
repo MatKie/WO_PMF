@@ -9,6 +9,7 @@ __pycache__/
 *.trr
 *.xtc
 confout*.gro
+*.gro
 *.edr
 *.out
 *.cpt
@@ -16,6 +17,6 @@ confout*.gro
 *.ndx
 mdout.mdp
 dummy.tpr
-
+\#*
 # Misc
 init/water_alkane.pdb

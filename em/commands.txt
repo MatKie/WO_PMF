@@ -1,0 +1,10 @@
+gmx editconf -f ../init/water_alkane.pdb -o water_alkane.gro -box 5 5 15
+gmx grompp -f dummy.mdp -c water_alkane.gro -p ../topo/topol.top -o dummy.tpr
+gmx make_ndx -f dummy.tpr
+t CM
+t CT
+t Wift25
+q
+cp ../../CarbonFF/tables/*.xvg
+gmx mdrun -v -s topol.tpr
+cp *.xvg
