@@ -1,0 +1,12 @@
+#include "../../CarbonFF/forcefield_defaults.itp"
+#include "../../CarbonFF/ffnonbonded.itp"
+#include "../../CarbonFF/cgw_ift_25.itp"
+#include "Nonane.itp"
+
+[system]
+Water Nonane mixture 2/3 nonane by volume
+
+[molecules]
+
+SOL  4182
+Nonane 846
