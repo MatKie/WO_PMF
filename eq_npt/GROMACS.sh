@@ -8,7 +8,7 @@ module load gromacs/2019.3
 FOLDERNAME=$PBS_JOBID
 EPHEMERAL_SCRATCH=$EPHEMERAL/Scratch
 RUNPATH=$EPHEMERAL_SCRATCH/$FOLDERNAME
-GMXLIB=/../../CarbonFF/tables
+GMXLIB=/rds/general/user/mk8118/home/2021/PMF_Water_Oil/CarbonFF/tables
 
 mkdir $RUNPATH
 cp -r $PBS_O_WORKDIR/* $RUNPATH/
