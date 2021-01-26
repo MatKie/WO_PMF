@@ -23,5 +23,6 @@ table*.xvg
 \#*
 *.sh.e*
 *.sh.o*
+*.xvg
 # Misc
 init/water_alkane.pdb
