@@ -1,3 +1,4 @@
+copy topol.top.example to topol.top
 Change ffnonbonded.itp in topol.top to version you want
 
 If you want a different alkane, 
