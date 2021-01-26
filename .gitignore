@@ -17,3 +17,5 @@ confout*.gro
 mdout.mdp
 dummy.tpr
 
+# Misc
+init/water_alkane.pdb

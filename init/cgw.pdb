@@ -1,0 +1,5 @@
+TITLE     1 single water molecule
+MODEL        1
+ATOM      1  W25 SOL     1       2.300   6.280   1.130  1.00  0.00            
+TER
+ENDMDL

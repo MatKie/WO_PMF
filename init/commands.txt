@@ -1,0 +1,8 @@
+If you want another solute, put it in the folder and update
+it water_alkane.inp. Also update the numbers in water_oil according to 
+instructions in topol folder. 
+Run packmol on water_alkane.inp. For me this is usually something like:
+
+~/packmol/packmol < water_alkane.inp
+
+This should create water_alkane.pdb
