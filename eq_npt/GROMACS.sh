@@ -14,6 +14,9 @@ cp -r $PBS_O_WORKDIR/* $RUNPATH/
 
 cd $RUNPATH
 
+GMXLIB=/rds/general/user/mk8118/home/2021/PMF_Water_Oil/CarbonFF/tables
+cp $GMXLIB/* $RUNPATH
+
 #OMP_NUM_THREADS=1
 #MPI_NUM_THREADS=32
 

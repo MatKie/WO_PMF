@@ -8,15 +8,15 @@ module load gromacs/2019.3
 FOLDERNAME=$PBS_JOBID
 EPHEMERAL_SCRATCH=$EPHEMERAL/Scratch
 RUNPATH=$EPHEMERAL_SCRATCH/$FOLDERNAME
-GMXLIB=/rds/general/user/mk8118/home/2021/PMF_Water_Oil/CarbonFF/tables
 
 mkdir $RUNPATH
 cp -r $PBS_O_WORKDIR/* $RUNPATH/
 
 cd $RUNPATH
 
-cp $GMXLIB/* $RUNPATH
 
+GMXLIB=/rds/general/user/mk8118/home/2021/PMF_Water_Oil/CarbonFF/tables
+cp $GMXLIB/* $RUNPATH
 #OMP_NUM_THREADS=1
 #MPI_NUM_THREADS=32
 
