@@ -1,2 +1,4 @@
 gmx grompp -f npt.mdp -c ../em/confout.gro -p ../topo/topol.top -n ../em/index.ndx
 gmx mdrun -s topol.tpr
+cp ../../CarbonFF/tables/*.xvg .
+rm *.xvg

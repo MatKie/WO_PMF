@@ -3,9 +3,9 @@ gmx grompp -f dummy.mdp -c water_alkane.gro -p ../topo/topol.top -o dummy.tpr
 gmx make_ndx -f dummy.tpr
 t CM
 t CT
-t Wift25
+t W
 q
-cp ../../CarbonFF/tables/*.xvg
+cp ../../CarbonFF/tables/*.xvg .
 gmx grompp -f em.mdp -c water_alkane.gro -p ../topo/topol.top -n index.ndx
 gmx mdrun -v -s topol.tpr
-cp *.xvg
+rm *.xvg

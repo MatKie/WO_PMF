@@ -23,8 +23,8 @@ vdwtype         = user     ; Needs shifting via modifier
 vdw-modifier    = None     ; shift potential
 rvdw            = 2.0         ; vdw cutoff
 
-energygrps = Wift25 CT CM 
-energygrp_table = Wift25 Wift25 CT CT CM CM Wift25 CT Wift25 CM CT CM
+energygrps = W CT CM 
+energygrp_table = W W CT CT CM CM W CT W CM CT CM
 
 tcoupl   = nose-hoover;
 tc-grps  = system;
