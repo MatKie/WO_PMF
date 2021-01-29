@@ -1,6 +1,6 @@
 #include "../../CarbonFF/forcefield_defaults.itp"
 #include "../../CarbonFF/ffnonbonded.itp"
-#include "../../CarbonFF/cgw_ift_25.itp"
+#include "../../CarbonFF/cgw_ift.itp"
 #include "Nonane.itp"
 
 [system]

@@ -11,5 +11,7 @@ Desired boxlenght is 5x5x15 nm.
 mol/nm^3 = dens * 1/MW * 6.022 * 10**-4
 for water ~ 33.45
 for nonane ~ 3.378 (rho 718 kg/m3, MW 0.128 kg/mol)
+for dodecane ~ 2.656 (rho 750 kg/m3, MW 0.170 kg/mol)
 125nm^3 water ~ 4182 water molecules.
 250nm^3 alkane ~ 846 (rounding up genoursly)
+250nm^3 alkane ~ 666 (rounding up genoursly)
