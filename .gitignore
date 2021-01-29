@@ -15,6 +15,9 @@ confout*.gro
 *.cpt
 *.tpr
 *.ndx
+eq_npt/npt.mdp
+npt/npt.mdp
+nvt/nvt.mdp
 topo/topol.top
 init/water_alkane.inp
 mdout.mdp
