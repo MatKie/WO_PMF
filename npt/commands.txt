@@ -1,3 +1,4 @@
+Change temperature or whatever and copy npt.mdp.example to npt.mdp
 If you want to run local:
 
 cp ../../CarbonFF/tables/*.xvg .

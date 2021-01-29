@@ -26,14 +26,14 @@ rvdw            = 2.0         ; vdw cutoff
 energygrps = W CT CM 
 energygrp_table = W W CT CT CM CM W CT W CM CT CM
 
-tcoupl   = nose-hoover;
+tcoupl   = v-rescale;
 tc-grps  = system;
-tau-t    = 5;
+tau-t    = 0.5;
 ref-t    = 298.15 ;
 
-pcoupl          = parrinello-rahman ;
+pcoupl          = berendsen ;
 pcoupltype      = semiisotropic ;
-tau-p           = 10;
+tau-p           = 1.4;
 compressibility = 0 0.000045 ;
 ref-p           = 10.0 10.0 ;
 
