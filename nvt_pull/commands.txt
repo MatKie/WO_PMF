@@ -1,0 +1,18 @@
+gmx pairdist -f ../nvt/confout.gro -s ../nvt/topol.tpr -rmpbc yes -ref 'com of group sol' -sel 'group SDS' -seltype res_com -selgrouping res 
+python find_start.py 7.5 (output residue named res)
+
+gmx make_ndx -n ../em/index.ndx -f ../nvt/topol.tpr <<
+r res+1 + res_water
+name _last_group_ solute
+
+Check if we did this correctly by checking if distance is the same:
+gmx pairdist -f ../nvt/confout.gro -s ../nvt/topol.tpr -rmpbc yes -ref 'com of group sol' -sel 'group solute' -seltype res_com -selgrouping res -n index.ndx
+
+Find pbc atom
+gmx pairdist -f ../nvt/confout.gro -s ../nvt/topol.tpr -rmpbc yes -ref 'com of group sol' -sel 'group sol' -seltype res_com -selgrouping res
+python find_start.py 0.0
+replace pbc atom with output+1
+
+Grompp and run
+also change temp
+gmx grompp -f pull.mdp -c ../nvt/confout.gro -t ../nvt/traj.trr -p ../topo/topol.top -n index.ndx

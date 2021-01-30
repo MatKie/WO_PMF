@@ -1,0 +1,51 @@
+; em.mdp - used as input into grompp to generate ions.tpr
+; Parameters describing what to do, when to stop and what to save
+integrator  = md         ; Algorithm (steep = steepest descent minimization)
+dt          = 0.005
+nstcomm     = 100
+nsteps      = 800000         ; Maximum number of (minimization) steps to perform
+nstxout     = 250
+nstvout     = 250
+nstfout     = 250
+nstlog      = 1000
+; Parameters describing how to find the neighbors of each atom and how to calculate the interactions
+nstlist         = 5         ; Frequency to update the neighbor list and long range forces
+cutoff-scheme	= group     ; old neighbor searching because of non LJ interactions 
+ns_type         = grid      ; Method to determine neighbor list (simple, grid)
+pbc             = xyz       ; Periodic Boundary Conditions in all 3 dimensions
+rlist           = 2.3       ; cutoff for neighbor searching
+
+;Electrostatics
+rcoulomb        = 2.3         ; cutoff for coulomb interactions
+epsilon-r       = 78.74
+;VDW
+vdwtype         = user     ; Needs shifting via modifier
+vdw-modifier    = None     ; shift potential
+rvdw            = 2.0         ; vdw cutoff
+
+energygrps = W CT  
+energygrp_table = W W CT CT W CT 
+
+tcoupl   = nose-hoover;
+tc-grps  = system;
+tau-t    = 5.0 ;
+ref-t    = 298.15  ;
+
+; Pull code
+pull                 = yes
+pull_ncoords         = 1        ; one reaction coordinate
+pull_ngroups         = 2        ; pull between two groups
+pull_group1_name     = SOL      ; static part
+pull_group2_name     = solute   ; pulled monomer
+pull_coord1_type     = umbrella ; harmonic potential
+pull_coord1_geometry = direction-periodic ; pull along connecting vector of groups
+pull_coord1_dim      = N N Y    ; radial pulling
+pull_coord1_vec      = 0. 0. -1.
+pull_coord1_groups   = 1 2      ; groups to pull together
+pull_coord1_start    = yes      ; Adds the COM distance of group to initial pull coord
+pull_coord1_init     = 0.0      ; see above
+pull_coord1_rate     = 0.004    ; pull rate: nm/ps
+pull_coord1_k        = 1000     ; spring constant: kJ/mol/nm^2
+pull_group1_pbcatom  = 934      ; Which atom to choose for (initial?) pbc calculation
+pull_pbc_ref_prev_step_com = yes ; COM of prev. step is used as ref
+
