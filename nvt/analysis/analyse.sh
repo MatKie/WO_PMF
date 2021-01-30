@@ -1,6 +1,6 @@
 #!/bin/bash
 
-gmx energy -f ../ener.edr -b 10000 <<EOF
+gmx energy -f ../ener.edr -b 10000 > energies.out  <<EOF
 1
 2
 3

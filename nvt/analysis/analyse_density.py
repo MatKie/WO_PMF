@@ -44,6 +44,4 @@ print('Solubility of Water in Oil: {:.3e}({:.3e}) g/cm^3'.format(mean/1000, std/
 print('Experimental ~ 10^-5')
 
 
-x
-
 
