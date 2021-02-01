@@ -15,6 +15,13 @@ confout*.gro
 *.cpt
 *.tpr
 *.ndx
+*.raw
+umbrella/**
+pull_analysis/**/frame-*
+pull_analysis/*.dat
+pull_analysis/topol.top
+pull_analysis/*.mdp
+pull_analysis/plots/*
 nvt_pull/pull.mdp
 eq_npt/npt.mdp
 npt/npt.mdp

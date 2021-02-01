@@ -1,16 +1,34 @@
-./calc_distances.sh
+run plot_force.py and check if force profile is alright.
+Also check your nvt_plot trajectory with vmd.
+in selection: residue xx xx ..., get xx from index file 
 
-If there were blanks, fill those with values
+copy index.ndx from pull simulation
+copy pull.tpr from pull simulation 
+(cp ../nvt_pull/topol.tpr pull.tpr)
+
+copy your *self-sufficient* topology in here. This means include molecule
+(e.g. Hexane.itp) via copy&paste instead of just via include
+
+./calc_distances.sh (change up call if necessary)
+
+If there were blanks (in summary_distances.dat), fill those with values
 Delete frames below/above your chosen threshold (e.g 6.5 nm each side)
 
 Copy example mdp files and change temps in mdp files if necessary
 
 Change pairdist call in GROMACS.sh and .mdp files if necessary
+Pay special attention to the include directory
+
 python2 setupUmbrella.py summary_distances.dat 0.1 GROMACS_UMBRELLA.sh run-umbrella.sh > frames.dat
+This might need a negative dx, depending on signs in summary_distances.dat ...
+
+mkdir runfiles
+mv frame-* runfiles
+
 create frames.raw (only frame numbers from frames.dat)
 cd runfiles
 chmod +x *.sh
 while read line ; do ./frame-${line}_run-umbrella.sh ;done < ../frames.raw
 
-copy in frames.raw and upload to cluse:qr
+copy frames.raw to umbrella and upload to cluse
 Start there with start_frames.sh

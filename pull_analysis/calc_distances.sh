@@ -13,6 +13,11 @@
 #
 #################################################
 
+if [ ! -d gro_files ];
+then
+    mkdir gro_files
+fi
+
 echo 0 | gmx trjconv -s ../nvt_pull/topol.tpr -f ../nvt_pull/traj.trr -o gro_files/conf.gro -n index.ndx -sep -pbc whole 
 
 frames=3201

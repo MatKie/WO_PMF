@@ -9,7 +9,7 @@ module load anaconda3/personal
 FOLDERNAME=$PBS_JOBID
 EPHEMERAL_SCRATCH=$EPHEMERAL/Scratch
 RUNPATH=$EPHEMERAL_SCRATCH/$FOLDERNAME
-GMXLIB=/rds/general/user/mk8118/home/2021/PMF_Water_Oil/CarbonFF/tables
+GMXLIB=/rds/general/user/mk8118/home/CODE/CarbonFF/tables
 
 
 mkdir $RUNPATH

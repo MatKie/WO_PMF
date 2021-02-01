@@ -24,13 +24,13 @@ vdwtype         = user     ; Needs shifting via modifier
 vdw-modifier    = None     ; shift potential
 rvdw            = 2.0         ; vdw cutoff
 
-energygrps = Wift25 CT 
-energygrp_table = Wift25 Wift25 CT CT Wift25 CT 
+energygrps = W CM CT 
+energygrp_table = W W CM CM CT CT W CM W CT CM CT 
 
 tcoupl   = Berendsen;
-tc-grps  = system;
-tau-t    = 1.0 ;
-ref-t    = 298.15 ;
+tc-grps  = SOL non-water ;
+tau-t    = 1.0 1.0 ;
+ref-t    = 298.15 298.15 ;
 
 pcoupl          = Berendsen ;
 pcoupltype      = isotropic ;
