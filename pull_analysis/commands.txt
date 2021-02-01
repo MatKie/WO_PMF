@@ -1,0 +1,16 @@
+./calc_distances.sh
+
+If there were blanks, fill those with values
+Delete frames below/above your chosen threshold (e.g 6.5 nm each side)
+
+Copy example mdp files and change temps in mdp files if necessary
+
+Change pairdist call in GROMACS.sh and .mdp files if necessary
+python2 setupUmbrella.py summary_distances.dat 0.1 GROMACS_UMBRELLA.sh run-umbrella.sh > frames.dat
+create frames.raw (only frame numbers from frames.dat)
+cd runfiles
+chmod +x *.sh
+while read line ; do ./frame-${line}_run-umbrella.sh ;done < ../frames.raw
+
+copy in frames.raw and upload to cluse:qr
+Start there with start_frames.sh

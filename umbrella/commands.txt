@@ -1,0 +1,6 @@
+Upload to cx1/hpc and run
+run ./check_frames.sh to see if everything has finished, maybe restart some 
+frames
+run ./collect frames.sh to get relevant information
+gmx wham -b 200 -nBootstrap 100 -bs-method traj -ac yes -ip tpr-files.dat -if force-files.dat -unit kT
+    Optional -min -max (in nm)
