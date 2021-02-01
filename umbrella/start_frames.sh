@@ -6,4 +6,4 @@ do
     cd ${line}
     qsub ${line}_UMBRELLA.sh
     cd ..
-done < error.txt
+done < frames.raw

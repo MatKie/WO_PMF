@@ -44,7 +44,7 @@ do
             n_error=$((n_error+1))
             echo $line >> error.txt
     fi 
-done < frames.check
+done < frames.raw
 
 echo 'Complete windows  : '$n_compl
 echo 'Incomplete windows: '$n_incompl
