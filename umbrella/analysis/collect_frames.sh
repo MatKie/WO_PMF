@@ -18,3 +18,22 @@ do
     echo "../${line}/prod/umbrella${line}.tpr" >> tpr-files.dat 
 done < ../complete.txt
 
+if [ -f lhs.txt ];
+then
+    while read line; 
+    do
+        echo "../${line}/prod/umbrella${line}f.xvg" > lhs-force-files.dat 
+        echo "../${line}/prod/umbrella${line}.tpr" > lhs-tpr-files.dat 
+    done < lhs.txt
+fi
+
+if [ -f rhs.txt ];
+then
+    while read line; 
+    do
+        echo "../${line}/prod/umbrella${line}f.xvg" > rhs-force-files.dat 
+        echo "../${line}/prod/umbrella${line}.tpr" > rhs-tpr-files.dat 
+    done < rhs.txt
+
+fi
+

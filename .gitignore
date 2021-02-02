@@ -19,8 +19,11 @@ confout*.gro
 *.dat
 *.pdf
 *.png
+*.txt
+!commands.txt
 umbrella/**/
 !umbrella/analysis
+
 umbrella/incomplete.txt
 umbrella/error.txt
 umbrella/complete.txt
