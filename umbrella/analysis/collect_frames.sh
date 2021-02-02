@@ -14,7 +14,7 @@ fi
 
 while read line; 
 do
-    echo "${line}/prod/umbrella${line}f.xvg" >> force-files.dat 
-    echo "${line}/prod/umbrella${line}.tpr" >> tpr-files.dat 
-done < complete.txt
+    echo "../${line}/prod/umbrella${line}f.xvg" >> force-files.dat 
+    echo "../${line}/prod/umbrella${line}.tpr" >> tpr-files.dat 
+done < ../complete.txt
 

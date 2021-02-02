@@ -16,7 +16,11 @@ confout*.gro
 *.tpr
 *.ndx
 *.raw
+*.dat
+*.pdf
+*.png
 umbrella/**/
+!umbrella/analysis
 umbrella/incomplete.txt
 umbrella/error.txt
 umbrella/complete.txt

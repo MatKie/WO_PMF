@@ -1,6 +1,18 @@
 Upload to cx1/hpc and run
 run ./check_frames.sh to see if everything has finished, maybe restart some 
-frames
+frames (check out the *.sh files in here there are some to check completion,
+restart incomplete or errorenous simulations.)
+
 run ./collect frames.sh to get relevant information
-gmx wham -b 200 -nBootstrap 100 -bs-method traj -ac yes -ip tpr-files.dat -if force-files.dat -unit kT
+copy frames.dat from pull_analysis to analysis. 
+
+-b 20: discard some of the trajectory (200ps?)
+-nBootstrap 100 : do 100 bootstraps
+-bs-method traj: trajectory method for bootstrapping, creating new data
+                 from the sampled data taking the autocorrelation time
+                 into account. IMO best for the situation where we have
+                 one simulation for each COM distance.
+-ac yes: Estimate autocorrelation time from each window.
+-temp: temp
+gmx wham -temp 298.15 -b 200 -nBootstrap 100 -bs-method traj -ac yes -ip tpr-files.dat -if force-files.dat -unit kT
     Optional -min -max (in nm)
