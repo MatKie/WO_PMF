@@ -16,7 +16,11 @@ confout*.gro
 *.tpr
 *.ndx
 *.raw
-umbrella/**
+umbrella/**/
+umbrella/incomplete.txt
+umbrella/error.txt
+umbrella/complete.txt
+umbrella/RESTART_PROD.sh
 pull_analysis/**/frame-*
 pull_analysis/*.dat
 pull_analysis/topol.top
@@ -33,6 +37,7 @@ dummy.tpr
 table*.xvg
 \#*
 *.sh.e*
+!*.sh.example
 *.sh.o*
 *.xvg
 # Misc
