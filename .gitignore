@@ -20,32 +20,21 @@ confout*.gro
 *.pdf
 *.png
 *.txt
+*.mdp
+!dummy.mdp
 !commands.txt
 umbrella/**/
 !umbrella/analysis
 
-umbrella/incomplete.txt
-umbrella/error.txt
-umbrella/complete.txt
 umbrella/RESTART_PROD.sh
 pull_analysis/**/frame-*
 pull_analysis/*.dat
 pull_analysis/topol.top
-pull_analysis/*.mdp
 pull_analysis/plots/*
-nvt_pull/pull.mdp
-eq_npt/npt.mdp
-npt/npt.mdp
-nvt/nvt.mdp
 topo/topol.top
-init/water_alkane.inp
-mdout.mdp
-dummy.tpr
 table*.xvg
 \#*
 *.sh.e*
 !*.sh.example
 *.sh.o*
 *.xvg
-# Misc
-init/water_alkane.pdb

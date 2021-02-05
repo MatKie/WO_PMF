@@ -1,11 +1,15 @@
-gmx editconf -f ../init/water_alkane.pdb -o water_alkane.gro -box 5 5 15
-gmx grompp -f dummy.mdp -c water_alkane.gro -p ../topo/topol.top -o dummy.tpr
-gmx make_ndx -f dummy.tpr
+copy em.mdp.example to em.mdp, change as you see fit.
+e.g. you wanna do this:
+sed -i s/Wift25/W2/g em.mdp 
+
+gmx grompp -f dummy.mdp -c ../init/solv.gro -p ../topo/topol.top -o dummy.tpr
+gmx genion -s dummy.tpr -p ../topo/topol.top -o solv_neutral.gro -pname NA -neutral 
+gmx grompp -f dummy.mdp -c solv_neutral.gro  -p ../topo/topol.top -o dummy.tpr
+gmx make_ndx -f dummy.tpr <EOF
 t CM
 t CT
-t W
-q
-cp ../../CarbonFF/tables/*.xvg .
-gmx grompp -f em.mdp -c water_alkane.gro -p ../topo/topol.top -n index.ndx
-gmx mdrun -v -s topol.tpr
-rm *.xvg
+t SO4v9
+t W2
+t Na+
+<EOF
+gmx grompp -f em.mdp -c solv_neutral.gro -p ../topo/topol.top -n index.ndx

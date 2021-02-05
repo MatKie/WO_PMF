@@ -1,8 +1,14 @@
-If you want another solute, put it in the folder and update
-it water_alkane.inp. Also update the numbers in water_oil according to 
-instructions in topol folder. 
-Run packmol on water_alkane.inp. For me this is usually something like:
+This assumes you have a pre-assembled (if you like also preequilibrated)
+single micelle as a gro file (fitting to whatever you put in your
+topology). solvate it in the water model you like:
 
-~/packmol/packmol < water_alkane.inp
+Replace the path in -cs with whereever you have a pre-equilibrated water 
+box (e.g. a box of 216 water molecules). gromacs looks for this file in 
+whereever all the forcefields are (e.g. /usr/local/gromacs/share/gromacs/top/)
 
-This should create water_alkane.pdb
+Make sure you get roughly as many water as you expect. There are around 33.3 
+waters per nm^3, half for the two bead water model I'm using here. 
+The box is 1000nm^3, so I expect 16650 water beads. If it's too far away, 
+play with the -radius keyword (or set -maxsol)
+
+gmx solvate -cp single_micelle.gro -cs cgw2.gro  -o solv.gro -p ../topo/topol.top
