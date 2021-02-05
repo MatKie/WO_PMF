@@ -1,5 +1,5 @@
 #PBS -lselect=1:ncpus=32:mem=2gb
-#PBS -lwalltime=12:00:00
+#PBS -lwalltime=18:00:00
 
 #module load intel-suite 
 #module load mpi 
@@ -15,12 +15,12 @@ cp -r $PBS_O_WORKDIR/* $RUNPATH/
 cd $RUNPATH
 
 
-GMXLIB=/rds/general/user/mk8118/home/2021/PMF_Water_Oil/CarbonFF/tables
+GMXLIB=/rds/general/user/mk8118/home/CODE/saftv1.ff/tables
 cp $GMXLIB/* $RUNPATH
 #OMP_NUM_THREADS=1
 #MPI_NUM_THREADS=32
 
-gmx mdrun -maxh 12 -ntmpi 32 -s topol.tpr   
+gmx mdrun -maxh 18 -ntmpi 32 -s topol.tpr   
 
 rm GROMACS.sh.*
 rm table*.xvg
