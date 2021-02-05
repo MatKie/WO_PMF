@@ -11,5 +11,6 @@ t CT
 t SO4v9
 t W2
 t Na+
+t Na+ | t W2 (or something along those lines)
 <EOF
 gmx grompp -f em.mdp -c solv_neutral.gro -p ../topo/topol.top -n index.ndx
