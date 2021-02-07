@@ -33,10 +33,10 @@ tau-t    = 0.2 0.2;
 ref-t    = 298.15 298.15 ;
 
 pcoupl          = berendsen ;
-pcoupltype      = semiisotropic ;
+pcoupltype      = isotropic ;
 tau-p           = 0.5;
-compressibility = 0 0.000045 ;
-ref-p           = 1.01325 1.01325 ;
+compressibility = 0.000045 ;
+ref-p           = 1.01325 ;
 
 gen-vel  = yes;
 gen_temp = 298.15;
