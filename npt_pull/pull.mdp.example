@@ -1,9 +1,9 @@
 ; em.mdp - used as input into grompp to generate ions.tpr
 ; Parameters describing what to do, when to stop and what to save
 integrator  = md         ; Algorithm (steep = steepest descent minimization)
-dt          = 0.005
+dt          = 0.01
 nstcomm     = 100
-nsteps      = 800000         ; Maximum number of (minimization) steps to perform
+nsteps      = 110000         ; Maximum number of (minimization) steps to perform
 nstxout     = 250
 nstvout     = 250
 nstfout     = 250
@@ -16,6 +16,7 @@ pbc             = xyz       ; Periodic Boundary Conditions in all 3 dimensions
 rlist           = 2.3       ; cutoff for neighbor searching
 
 ;Electrostatics
+coulombtype     = PME       ; Treatment of long range elctrostatic interactions
 rcoulomb        = 2.3         ; cutoff for coulomb interactions
 epsilon-r       = 78.74
 ;VDW
@@ -23,29 +24,34 @@ vdwtype         = user     ; Needs shifting via modifier
 vdw-modifier    = None     ; shift potential
 rvdw            = 2.0         ; vdw cutoff
 
-energygrps = W CT CM 
-energygrp_table = W W CT CT CM CM W CT W CM CT CM
+energygrps = W2 CT CM Na+ SO4v9
+energygrp_table = W2 W2 CT CT CM CM Na+ Na+ SO4v9 SO4v9 W2 CT W2 CM W2 Na+ W2 SO4v9 CT CM CT Na+ CT SO4v9 CM Na+ CM SO4v9 Na+ SO4v9
 
 tcoupl   = nose-hoover;
-tc-grps  = system;
-tau-t    = 5.0 ;
-ref-t    = 298.15  ;
+tc-grps  = SDS NA+_W2;
+tau-t    = 5.0 5.0;
+ref-t    = 298.15 298.15 ;
+
+pcoupl          = Parrinello-Rahman ;
+pcoupltype      = isotropic ;
+tau-p           = 12.0 ;
+compressibility = 0.000045 ;
+ref-p           = 1.01325 ;
 
 ; Pull code
 pull                 = yes
 pull_ncoords         = 1        ; one reaction coordinate
 pull_ngroups         = 2        ; pull between two groups
-pull_group1_name     = SOL      ; static part
-pull_group2_name     = solute   ; pulled monomer
+pull_group1_name     = micelle  ; static part
+pull_group2_name     = monomer  ; pulled monomer
 pull_coord1_type     = umbrella ; harmonic potential
-pull_coord1_geometry = direction-periodic ; pull along connecting vector of groups
-pull_coord1_dim      = N N Y    ; radial pulling
-pull_coord1_vec      = 0. 0. -1.
+pull_coord1_geometry = distance ; pull along connecting vector of groups
+pull_coord1_dim      = Y Y Y    ; radial pulling
 pull_coord1_groups   = 1 2      ; groups to pull together
 pull_coord1_start    = yes      ; Adds the COM distance of group to initial pull coord
 pull_coord1_init     = 0.0      ; see above
 pull_coord1_rate     = 0.004    ; pull rate: nm/ps
 pull_coord1_k        = 1000     ; spring constant: kJ/mol/nm^2
-pull_group1_pbcatom  = 934      ; Which atom to choose for (initial?) pbc calculation
+pull_group1_pbcatom  = 44      ; Which atom to choose for (initial?) pbc calculation
 pull_pbc_ref_prev_step_com = yes ; COM of prev. step is used as ref
 

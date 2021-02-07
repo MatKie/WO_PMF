@@ -1,0 +1,20 @@
+gmx trjconv -f ../npt/traj.trr -s ../npt/topol.tpr -o traj_cat.xtc -pbc cluster -b 25000
+
+python min_dist.py for getting minimum residue and atom, put into pull.mdp
+alternatively do (with right paths):
+gmx pairdist -s ../npt/topol.tpr -f ../npt/traj.xtc -n ../em/index.ndx -seltype res_com  -selgrouping res -pbc no -ref 'com of resname SDS' -sel 'resname SDS' -b 25000
+and search for minimum using find_start.py, this also finds the right time
+
+gmx trjconv -dump 26100 -pbc cluster -o keep.gro -f ../npt/traj.trr -s ../npt/topol.tpr
+Replace 26100 with time you got from find_start.py
+
+gmx make_ndx -f ../npt/topol.tpr -n ../npt/index_analysis.ndx
+--> r xxx, name xx 'monomer'; r y-(xxx-1) | r xxx+1 - 60, name xx 'micelle'
+You probably have to add one as index files count residues from 1
+
+Check if monomer group was correclty chosen (distance from this should be 
+min_dist from find_start/min_dist
+
+gmx pairdist -s ../npt/topol.tpr -f keep.gro -n index.ndx -seltype res_com -selgrouping res -pbc no -ref com of resname SDS -sel group monomer
+
+grompp it and run it
