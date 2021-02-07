@@ -18,7 +18,7 @@ cp min_dist_numpy.py ../umbrella/XXX/prod
 cp md_umbrella.mdp ../umbrella/XXX/prod
 
 cd ../umbrella/XXX/eq
-gmx pairdist -s pull.tpr -f confXXX.gro -n ../index.ndx -seltype atom -selgrouping none -sel 'group sol'  -ref 'com of group solute'
+gmx pairdist -s pull.tpr -f confXXX.gro -n ../index.ndx -seltype atom -selgrouping none -sel 'group monomer'  -ref 'com of group micelle'
 python min_dist_numpy.py dist.xvg npt_umbrella.mdp 
 rm pull.tpr
 cd ../../../pull_analysis

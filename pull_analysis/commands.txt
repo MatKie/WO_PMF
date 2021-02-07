@@ -1,10 +1,10 @@
 run plot_force.py and check if force profile is alright.
-Also check your nvt_plot trajectory with vmd.
+Also check your npt_pull trajectory with vmd.
 in selection: residue xx xx ..., get xx from index file 
 
 copy index.ndx from pull simulation
 copy pull.tpr from pull simulation 
-(cp ../nvt_pull/topol.tpr pull.tpr)
+(cp ../npt_pull/topol.tpr pull.tpr)
 
 copy your *self-sufficient* topology in here. This means include molecule
 (e.g. Hexane.itp) via copy&paste instead of just via include
@@ -16,8 +16,9 @@ Delete frames below/above your chosen threshold (e.g 6.5 nm each side)
 
 Copy example mdp files and change temps in mdp files if necessary
 
-Change pairdist call in GROMACS.sh and .mdp files if necessary
-Pay special attention to the include directory
+Change pairdist call in GROMACS.sh and run-umbrella.sh
+Change .mdp files if necessary
+Pay special attention to the include directory, needed for grompping on cluster.
 
 python2 setupUmbrella.py summary_distances.dat 0.1 GROMACS_UMBRELLA.sh run-umbrella.sh > frames.dat
 This might need a negative dx, depending on signs in summary_distances.dat ...
