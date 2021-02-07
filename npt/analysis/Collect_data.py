@@ -18,7 +18,7 @@ from scipy.signal import savgol_filter as sav
 #tE = float(sys.argv[3])
 traj = 'traj.trr'
 t0 = 10000.
-tE = 25000.
+tE = 30000.
 traj = os.path.join('..', traj)
 tpr = os.path.join('..', 'topol.tpr')
 agg_spec = ['C{:d}'.format(i) for i in range(1,5)]

@@ -6,41 +6,41 @@ begin=5000
 width=0.005
 
 gmx sasa -f ../$traj -s ../topol.tpr -n ../$index -b $begin -output 'name C1 C2 C3 C4; name SU' <<EOF
-2
+group SDS
 EOF
 
 gmx gyrate -f ../$traj -s ../topol.tpr -n ../$index -b $begin <<EOF
-2
+group SDS
 EOF
 
 
-gmx principal -f ../$traj -s ../topol.tpr -b $begin <<EOF
-2
+gmx principal -n ../$index -f ../$traj -s ../topol.tpr -b $begin <<EOF
+group SDS
 EOF
 
 gmx rdf -bin $width -f ../$traj -s ../topol.tpr -n ../$index -ref 'com of name C1 C2 C3 C4 SU' -b $begin <<EOF
-11
-12
-14
-4
-3
-13
+group CM
+group CT
+group SO4V9
+group SOL
+group 9
+group CM_CT
 EOF
 
 
 gmx rdf -bin $width -f ../$traj -s ../topol.tpr -n ../$index -ref 'com of name C1 C2 C3 C4 SU' -b $begin -norm none -o rdf_no_norm.xvg <<EOF
-11
-12
-14
-4
-3
-13
+group CM
+group CT
+group SO4V9
+group SOL
+group 9
+group CM_CT
 EOF
 
 gmx rdf -bin $width -f ../$traj -s ../topol.tpr -b $begin -o rdf_headgroup.xvg -n ../$index <<EOF
-14
-4
-3
-14
+group SO4V9
+group SOL
+group 9
+group SO4V9
 EOF
 

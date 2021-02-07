@@ -9,3 +9,8 @@ gmx grompp -f npt.mdp -c ../eq_npt/confout.gro -t ../eq_npt/traj.trr -p ../topo/
 upload the whole folder to cx1, and qsub GROMACS.sh. You might have to adapt 
 the GMXLIB path in there to the location of the tables.
 
+ANALYSIS:
+Create index_analysis.ndx which also includes some CM_CT group
+gmx trjconv -f traj.trr -o traj.xtc -pbc cluster
+cd analysis ; ./analyse.sh #make sure index_analysis has NA+ as group 9 and that everything is as expected
+python Collect_data.py

@@ -21,6 +21,8 @@ confout*.gro
 *.png
 *.txt
 *.mdp
+*.npz
+*.pkl
 !dummy.mdp
 !commands.txt
 umbrella/**/
