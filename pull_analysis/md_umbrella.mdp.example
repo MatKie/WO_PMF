@@ -32,7 +32,7 @@ energygrps = W2 CT CM Na+ SO4v9
 energygrp_table = W2 W2 CT CT CM CM Na+ Na+ SO4v9 SO4v9 W2 CT W2 CM W2 Na+ W2 SO4v9 CT CM CT Na+ CT SO4v9 CM Na+ CM SO4v9 Na+ SO4v9
 
 tcoupl   = Nose-Hoover;
-tc-grps  = SDS NA+_WIFT25;
+tc-grps  = SDS NA+_W2;
 tau-t    = 5.0 5.0;
 ref-t    = 298.15 298.15 ;
 

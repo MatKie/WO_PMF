@@ -28,7 +28,6 @@ confout*.gro
 umbrella/**/
 !umbrella/analysis
 
-umbrella/RESTART_PROD.sh
 pull_analysis/**/frame-*
 pull_analysis/*.dat
 pull_analysis/topol.top
