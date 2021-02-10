@@ -3,8 +3,8 @@ from mkutils import create_fig, save_to_file
 import os
 from scipy.signal import savgol_filter as svg
 
-x = np.loadtxt(os.path.join('..','nvt_pull', 'pullx.xvg'), comments=['#', '@'])
-f = np.loadtxt(os.path.join('..','nvt_pull', 'pullf.xvg'), comments=['#', '@'])
+x = np.loadtxt(os.path.join('..','npt_pull', 'pullx.xvg'), comments=['#', '@'])
+f = np.loadtxt(os.path.join('..','npt_pull', 'pullf.xvg'), comments=['#', '@'])
 
 # +
 fig, ax = create_fig(2, 1, sharex=True)
