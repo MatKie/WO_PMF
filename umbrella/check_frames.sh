@@ -40,9 +40,14 @@ do
             fi
         fi
     else
+        if qstat | grep -q ${line}'_' 
+        then 
+            echo 'Sill running: '${line}
+        else
             echo 'Error in '${line}' window'
             n_error=$((n_error+1))
             echo $line >> error.txt
+        fi
     fi 
 done < frames_original.raw
 
