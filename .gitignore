@@ -34,6 +34,7 @@ pull_analysis/topol.top
 pull_analysis/*.mdp
 pull_analysis/plots/*
 nvt_pull/pull.mdp
+em/em.mdp
 eq_npt/npt.mdp
 npt/npt.mdp
 nvt/nvt.mdp

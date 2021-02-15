@@ -1,11 +1,8 @@
-gmx editconf -f ../init/water_alkane.pdb -o water_alkane.gro -box 5 5 15
-gmx grompp -f dummy.mdp -c water_alkane.gro -p ../topo/topol.top -o dummy.tpr
+gmx editconf -f ../init/alkane.pdb -o alkane.gro -box 6.3 6.3 6.3
+gmx grompp -f dummy.mdp -c alkane.gro -p ../topo/topol.top -o dummy.tpr
 gmx make_ndx -f dummy.tpr
 t CM
 t CT
-t W
 q
-cp ../../CarbonFF/tables/*.xvg .
-gmx grompp -f em.mdp -c water_alkane.gro -p ../topo/topol.top -n index.ndx
+gmx grompp -f em.mdp -c alkane.gro -p ../topo/topol.top -n index.ndx
 gmx mdrun -v -s topol.tpr
-rm *.xvg

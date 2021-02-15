@@ -1,0 +1,15 @@
+#
+# Import a micelle and solvate in water and ions
+#
+
+
+tolerance 4.0
+
+structure nonane.pdb
+  number 846
+  inside box 0.0 0.0 0.0 63. 63.0 63.0
+end structure
+
+
+output alkane.pdb
+

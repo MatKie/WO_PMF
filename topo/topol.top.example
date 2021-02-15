@@ -1,12 +1,10 @@
-#include "../../CarbonFF/forcefield_defaults.itp"
-#include "../../CarbonFF/ffnonbonded.itp"
-#include "../../CarbonFF/cgw_ift.itp"
+#include "saftv1.ff/forcefield_defaults.itp"
+#include "saftv1.ff/ffnonbonded.itp"
 #include "Nonane.itp"
 
 [system]
-Water Nonane mixture 2/3 nonane by volume
+Pure Alkane Phase
 
 [molecules]
 
-SOL  4182
 Nonane 846

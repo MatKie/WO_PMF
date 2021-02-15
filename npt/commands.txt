@@ -1,14 +1,8 @@
 Change temperature or whatever and copy npt.mdp.example to npt.mdp
 If you want to run local:
 
-cp ../../CarbonFF/tables/*.xvg .
 gmx grompp -f npt.mdp -c ../eq_npt/confout.gro -t ../eq_npt/traj.trr -p ../topo/topol.top -n ../em/index.ndx
 gmx mdrun -v -s topol.tpr 
-rm *.xvg
 
-If you want to run on cx1:
-gmx grompp -f npt.mdp -c ../eq_npt/confout.gro -t ../eq_npt/traj.trr -p ../topo/topol.top -n ../em/index.ndx
-upload the whole folder to cx1, and qsub GROMACS.sh. You might have to adapt 
-the GMXLIB path in there to the location of the CarbonFF tables.
 
 Eval Boxsize with last ~5ns of simulation

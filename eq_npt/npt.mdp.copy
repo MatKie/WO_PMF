@@ -23,19 +23,19 @@ vdwtype         = user     ; Needs shifting via modifier
 vdw-modifier    = None     ; shift potential
 rvdw            = 2.0         ; vdw cutoff
 
-energygrps = W CT CM 
-energygrp_table = W W CT CT CM CM W CT W CM CT CM
+energygrps = CT CM 
+energygrp_table = CT CT CM CM CT CM
 
 tcoupl   = v-rescale;
 tc-grps  = system;
 tau-t    = 0.2;
-ref-t    = 298.15 ;
+ref-t    = 303.15 ;
 
 pcoupl          = berendsen ;
-pcoupltype      = semiisotropic ;
+pcoupltype      = isotropic ;
 tau-p           = 0.5;
-compressibility = 0 0.000045 ;
-ref-p           = 1.01325 1.01325 ;
+compressibility = 0.000045 ;
+ref-p           = 1.0 ;
 
 gen-vel  = yes;
-gen_temp = 298.15;
+gen_temp = 303.15;
