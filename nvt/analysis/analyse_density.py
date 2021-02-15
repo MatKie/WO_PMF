@@ -28,6 +28,14 @@ args = {'lw': 2}
 ax.plot(dens_number[:, 0], dens_number[:, 1], **args)
 ax.plot(dens_number[:, 0], dens_number[:, 2], **args)
 
+# xw, xc
+xw = dens_number[:,1]/(dens_number[:,1]+dens_number[:, 2])
+water_in_oil = np.concatenate((xw[:14], xw[36:]))
+mean, std = np.mean(water_in_oil), np.std(water_in_oil)
+
+print('xw outer comp.')
+print(mean, std)
+
     
 ax.set_xlabel('z / nm')
 ax.set_ylabel('$\\rho_\mathrm{mass}\,/\,\,m^{-3} $')
