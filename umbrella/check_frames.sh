@@ -25,24 +25,29 @@ do
             n_compl=$((n_compl+1))
             echo $line >> complete.txt
         else
-            n_incompl=$((n_incompl+1))
-            echo 'Did not fully complete '${line}' window'
-            echo $line >> incomplete.txt
-            if $restart_inc;
-            then 
-                cp RESTART_PROD.sh ${line}/prod/${line}_CONT.sh
-                cd $line
-                cd prod
-                sed -i s/WINDOW/${line}/g ${line}_CONT.sh
-                qsub ${line}_CONT.sh
-                cd ../..
-                echo 'Restarted '$line
+            if qstat | grep -q ${line}'_'
+            then
+                echo 'Still continuing: '${line}
+            else
+                n_incompl=$((n_incompl+1))
+                echo 'Did not fully complete '${line}' window'
+                echo $line >> incomplete.txt
+                if $restart_inc;
+                then 
+                    cp RESTART_PROD.sh ${line}/prod/${line}_CONT.sh
+                    cd $line
+                    cd prod
+                    sed -i s/WINDOW/${line}/g ${line}_CONT.sh
+                    qsub ${line}_CONT.sh
+                    cd ../..
+                    echo 'Restarted '$line
+                fi
             fi
         fi
     else
         if qstat | grep -q ${line}'_' 
         then 
-            echo 'Sill running: '${line}
+            echo 'Still running: '${line}
         else
             echo 'Error in '${line}' window'
             n_error=$((n_error+1))
