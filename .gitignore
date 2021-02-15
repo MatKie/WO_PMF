@@ -37,6 +37,7 @@ nvt_pull/pull.mdp
 eq_npt/npt.mdp
 npt/npt.mdp
 nvt/nvt.mdp
+em/em.mdp
 topo/topol.top
 init/water_alkane.inp
 mdout.mdp
